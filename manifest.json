@@ -1,10 +1,10 @@
 {
     "name": "Mouse Pointer Highlighter",
     "description": "This extension will highlight your mouse cursor and your mouse clicks.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "permissions": [
         "<all_urls>",
-        "tabs",
+        "activeTab",
         "storage"
     ],
     "icons": { "16": "icon16.png",
@@ -23,5 +23,6 @@
         "matches": ["http://*/*", "https://*/*"],
         "js": ["jquery/jquery-3.1.0.min.js", "highlight.js"],
         "all_frames": true
-    }]
+    }],
+    "offline_enabled": true
 }
