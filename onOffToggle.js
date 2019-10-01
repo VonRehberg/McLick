@@ -22,3 +22,7 @@ chrome.storage.local.get(['mouseClickActive'], function(result) {
     chrome.browserAction.setIcon({path: "off.png"});
   }
 });
+
+chrome.tabs.onActivated.addListener(function(activeInfo) {
+  chrome.tabs.executeScript(activeInfo.tabId, {code:"setMouseCursorFromStorage()"});
+});

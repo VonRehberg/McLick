@@ -118,14 +118,12 @@ function mouseUp(e){
 }
 
 function ext_on() {
-  console.log("On");
   $(window).mousemove(mouseMove);
   $(window).mousedown(mouseDown);
   $(window).mouseup(mouseUp);
 }
 
 function ext_off() {
-  console.log("Off");
   $(window).unbind('mousemove',mouseMove);
   $(window).unbind('mousedown',mouseDown);
   $(window).unbind('mouseup',mouseUp);
@@ -141,8 +139,14 @@ function ext_off() {
   });
 }
 
-chrome.storage.local.get(['mouseClickActive'], function(result) {
-  if (result.mouseClickActive) {
-    ext_on();
-  }
-});
+function setMouseCursorFromStorage() {
+  chrome.storage.local.get(['mouseClickActive'], function(result) {
+    if (result.mouseClickActive) {
+      ext_on();
+    } else {
+      ext_off();
+    }
+  });
+}
+
+setMouseCursorFromStorage();
